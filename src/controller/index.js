@@ -30,13 +30,15 @@ window.changeColor = (color) => {
  */
 
 let calAverage = (arr) => {
-  let sum = 0;
-  if (arr.length > 0) {
-    for (let i = 0; i < arr.length; i++) {
-      sum += arr[i];
-    }
-    return sum / arr.length;
-  }
+  // let sum = 0;
+  // if (arr.length) {
+  //   for (let i = 0; i < arr.length; i++) {
+  //     sum += arr[i];
+  //   }
+  //   return sum / arr.length;
+  // }
+
+  return arr.reduce((total, value) => (total += value), 0) / arr.length;
 };
 
 document.querySelector("#btnLop1").onclick = function () {
@@ -68,10 +70,6 @@ let renderText = () => {
   let arrText = [...text];
   let content = "";
 
-  // for (let i = 0; i < arrText.length; i++) {
-  //   content += `
-  // <span>${arrText[i]}</span>
-  // `;
   arrText.forEach(
     (item) =>
       (content += `<span style="display: inline-block; transition: all 0.5s;">${item}</span>`)
@@ -83,7 +81,6 @@ let renderText = () => {
   b.forEach((item) => {
     item.addEventListener("mouseover", () => item.classList.add("active"));
     item.addEventListener("mouseout", () => item.classList.remove("active"));
-    console.log(item);
   });
 };
 
